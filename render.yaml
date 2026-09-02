@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: letters-to-nobody-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: https://letterstonobody.net
+      - key: DB_PATH
+        value: /var/data/letters.db
+    disk:
+      name: letters-data
+      mountPath: /var/data
+      sizeGB: 1
